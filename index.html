@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Burger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+
+  <ul class="nav-menu">
+    <li><a href="#">Início</a></li>
+    <li><a href="#sobre">sobre</a></li>
+    <li><a href="#cardapio">Cardápio</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="carrinho">
+    🛒 <span>0</span>
+  </div>
+</nav>
+
+<div id="overlay" class="overlay">
+    <div class="painel-carrinho">
+        <div class="topo-carrinho">
+            <h2>Seu Carrinho</h2>
+            <button id="fecharCarrinho">
+                ✖
+            </button>
+
+        </div>
+
+  <div id="lista-carrinho">
+  </div>
+  <h3 id="total">
+    Total: R$ 0,00
+  </h3>
+
+  <button id="finalizarPedido">
+    Finalizar Pedido
+  </button>
+
+</div>
+</div>
+
+  <section class="hero">
+  <h1>Black Burger</h1>
+
+  <p>O Hambúrguer artesanal com sabor unico e ingredientes selecionados.</p>
+
+  <p class= "hero-info">
+        ⭐⭐⭐⭐⭐ +500 clientes satisfeitos
+  </p>
+
+  <a href="#cardapio" class="btn">
+    Fazer Pedido
+  </a>
+
+</section>
+
+<section class="diferenciais">
+
+    <h2>Por que escolher a Black Burger?</h2>
+    <div class="cards-diferenciais">
+
+        <div class="card-diferencial">
+          <h3>🥩</h3>
+          <h4>Carne Artesanal</h4>
+            <p>
+                Hambúrgueres preparados diariamente com ingredientes frescos e selecionados.
+            </p>
+
+        </div>
+
+        <div class="card-diferencial">
+            <h3>🧀</h3>
+            <h4>Ingredientes Premium</h4>
+            <p>
+                Utilizamos pães, carnes, queijos e molhos de alta qualidade.
+            </p>
+        </div>
+
+        <div class="card-diferencial">
+            <h3>🚀</h3>
+            <h4>Delivery Rápido</h4>
+            <p>
+                Seu pedido chega quentinho e com toda a qualidade da Black Burger.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="destaques">
+  
+  <div class="cards">
+
+     <div 
+    class="card"
+    data-id="1"
+    data-nome="Burger Clássico"
+    data-preco="25.00">
+     
+      <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2024/05/28/istock-1500141300-1iv4aeazj5her.jpg" alt="Hambúrguer">
+     <div class="avaliacao">
+    ⭐⭐⭐⭐⭐
+</div>
+      <h3>Burger Clássico</h3>
+      <p class="descricao">
+        **********
+      </p>
+      <p class="preco">
+      R$ 25,00
+    </p>
+    <button class="btn-card adicionar-carrinho">
+      Adicionar ao Carrinho
+    </button>
+    </div>
+
+      <div 
+    class="card"
+    data-id="2"
+    data-nome="Burger Bacon"
+    data-preco="30.00">
+
+      <img src="https://th.bing.com/th/id/R.b77f0036ccfd7f3fd5a01015134ebc81?rik=j4LPwWh3ujNufQ&pid=ImgRaw&r=0" alt="Hambúrguer">
+      <div class="avaliacao">
+    ⭐⭐⭐⭐⭐
+</div>
+      <h3>Burger Bacon</h3>
+      <p class="descricao">
+        **********
+      </p>
+      <p class="preco">
+        R$ 30,00
+      </p>
+      <button class="btn-card adicionar-carrinho">
+      Adicionar ao Carrinho
+    </button>
+    </div>
+
+      <div 
+    class="card"
+    data-id="3"
+    data-nome="Burger Especial"
+    data-preco="35.00">
+
+      <img src="https://tse4.mm.bing.net/th/id/OIP.2OhLzTazCSaW0QJT7gXupwAAAA?w=404&h=316&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hambúrguer">
+      <div class="avaliacao">
+    ⭐⭐⭐⭐⭐
+</div>
+      <h3>Burger Especial</h3>
+      <p class="descricao">
+        **********
+      </p>
+      <p class="preco">
+        R$ 35,00
+        </p>
+        <button class="btn-card adicionar-carrinho">
+      Adicionar ao Carrinho
+    </button>
+    </div>
+
+  </div>
+</section>
+
+ <section id="cardapio" class="cardapio">
+<a href="cardapio.html" class="btn">
+  Ver Cardapio Completo
+</a>
+</section>
+
+
+<footer>
+
+  <h3>Black Burger</h3>
+
+
+  <p>Especialista nos melhores Hambúrguers artezanais que voce ira comer</p>
+  
+  
+  <p>Estamos na Rua:*****</p>
+  <p>Localizado em Salto-Sp </p>
+
+  <p>
+© 2026 Black Burger - Todos os direitos reservados
+</p>
+</footer>
+
+<div id="toast" class="toast">
+  Produto adicionado ao carrinho!
+</div>
+
+<script src="js/produtos.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/carrinho.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

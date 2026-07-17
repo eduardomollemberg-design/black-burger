@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardápio - Black Burger</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cardapio.css">
+</head>
+
+<body>
+
+  <nav class="navbar-cardapio">
+
+     <ul class="nav-menu">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="#">Cardápio</a></li>
+  </ul>
+
+  <div class="carrinho">
+            🛒 <span>0</span>
+
+  </div>
+  
+    <h2>🍔 Black Burger</h2>
+  <a href="index.html" class="voltar">
+     ← Voltar ao Início
+  </a>
+
+  </nav>
+
+  <div id="overlay" class="overlay">
+    <div class="painel-carrinho">
+
+        <div class="topo-carrinho">
+            <h2>Seu Carrinho</h2>
+
+            <button id="fecharCarrinho">
+                ✖
+            </button>
+
+        </div>
+
+        <div id="lista-carrinho">
+        </div>
+
+        <h3 id="total">
+            Total: R$ 0,00
+        </h3>
+
+        <button id="finalizarPedido">
+            Finalizar Pedido
+        </button>
+
+    </div>
+</div>
+
+  <header class="hero-cardapio">
+
+  <h1>Cardapio Completo</h1>
+  <p> Escolha seus produtos favoritos e monte seu pedido.</p>
+
+  </header>
+
+<section class="pesquisa">
+
+  <input
+  type="text"
+  id="pesquisa"
+  placeholder="🔍 Pesquisar produto..."
+  >
+
+</section>
+
+<section class="filtros">
+
+    <button class="filtro ativo" data-categoria="todos">
+        Todos
+    </button>
+
+    <button class="filtro" data-categoria="hamburguer">
+        Hambúrgueres
+    </button>
+
+    <button class="filtro" data-categoria="bebida">
+        Bebidas
+    </button>
+
+    <button class="filtro" data-categoria="porcao">
+        Porções
+    </button>
+
+    <button class="filtro" data-categoria="sobremesa">
+        Sobremesas
+    </button>
+
+</section>
+
+<main>
+
+  <section id="produtos">
+  </section>
+
+</main>
+
+<div id="toast" class="toast">
+  Produto adicionado ao carrinho!
+</div>
+
+<script src="js/produtos.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/carrinho.js"></script>
+<script src="js/cardapio.js"></script>
+
+</body>
+</html>
