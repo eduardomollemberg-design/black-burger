@@ -504,10 +504,3 @@ nav a{
     opacity: 1;
     visibility: visible;
 }
-
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 1.8rem;
-      }
-    }
-    
