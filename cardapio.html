@@ -98,13 +98,38 @@
 
 <main>
 
-  <section id="produtos">
-  </section>
-
+  <div id="produtos"> </div>
+  
 </main>
 
 <div id="toast" class="toast">
   Produto adicionado ao carrinho!
+</div>
+
+<div id="modalCombo" class="modal-combo">
+    <div class="modal-conteudo">
+        <h2 id="tituloCombo"></h2>
+        <p>Escolha como deseja seu pedido:</p>
+
+        <button id="btnLanche" class="btn-opcao">
+            🍔 Apenas Lanche
+        <small id="precoLanche"></small>
+    </button>
+
+   <button id="btnCombo" class="btn-opcao destaque">
+    🍟 Combo ⭐
+    <small>
+        Acompanha Batata Frita + Refrigerante
+    </small>
+    <small id="precoCombo"></small>
+</button>
+
+        <button id="fecharModal" class="btn-fechar">
+            Cancelar
+        </button>
+
+    </div>
+
 </div>
 
 <script src="js/produtos.js"></script>

@@ -123,6 +123,7 @@ if(carrinho.length === 0){
     let valorTotal = 0;
     carrinho.forEach(function(produto){
         const item = document.createElement("div");
+        item.classList.add("item-carrinho");
 
         item.innerHTML = `
             <h4>${produto.nome}</h4>

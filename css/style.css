@@ -353,8 +353,11 @@ nav a{
 }
 
 #total{
-  margin-top: 20px;
-  font-size: 20px;
+ padding:20px;
+ font-size:22px;
+ color:#fff;   
+ border-top:1px solid #333;
+ font-weight:bold;
 }
 
 .controle-quantidade{
@@ -385,13 +388,18 @@ nav a{
 
 .remover{
     width:100%;
-    margin-top:10px;
+    margin-top:12px;
     padding:10px;
-    border:none;
-    border-radius:8px;
     background:#c0392b;
+    border:none;
     color:white;
+    border-radius:8px;
     cursor:pointer;
+    transition:.3s;
+}
+
+.remover:hover{
+    background:#e74c3c;
 }
 
     footer {
@@ -469,23 +477,6 @@ nav a{
     line-height:1.5;
 }
 
-.overlay{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.55);
-    display: flex;
-    justify-content: flex-end;
-    opacity: 0;
-    visibility: hidden;
-    transition: .35s;
-    z-index: 9999;
-}
-
-.overlay.ativo{
-    opacity: 1;
-    visibility: visible;
-}
-
 /* FUNDO ESCURO */
 
 .overlay{
@@ -503,4 +494,158 @@ nav a{
 .overlay.ativo{
     opacity: 1;
     visibility: visible;
+}
+
+.item-carrinho{
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: .3s;
+}
+
+.item-carrinho:hover{
+    border-color: #ff6600;
+    transform: translateY(-2px);
+}
+
+.item-carrinho h4{
+    color:#fff;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.subtotal{
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:#ff6600;
+    margin:10px 0;
+}
+
+.controle-quantidade button:hover{
+    background:#ff8533;
+}
+
+.controle-quantidade button:active{
+    transform:scale(.95);
+}
+
+
+
+
+.modal-combo{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-combo.ativo{
+    display: flex;
+}
+
+.modal-conteudo{
+    width: 90%;
+    max-width: 380px;
+    background: #1a1a1a;
+    color:white;
+    border:2px soli #ff6600;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    animation: aparecer .3s ease;
+}
+
+.modal-conteudo h2{
+    margin-bottom: 10px;
+}
+
+.modal-conteudo p{
+    margin-bottom: 20px;
+    color: #d6d6d6;
+}
+
+.btn-opcao{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: #ff6600;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-opcao:hover{
+    transform: translateY(-3px);
+}
+
+.btn-opcao small{
+    display: block;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.btn-fechar{
+    width: 100%;
+    border:1px solid #2c2c2c;
+    background: #2c2c2c;
+    color:white;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-fechar:hover{
+    background: #3b3b3b;
+}
+
+.destaque{
+    position: relative;
+    border:2px solid #ffd700;
+    box-shadow:0 0 15px rgba(255,215,0,.35);
+}
+
+.destaque::before{
+    content:"MAIS PEDIDO";
+    position:absolute;
+    top:-12px;
+    right:12px;
+    background:#ff6600;
+    color:white;
+    padding:3px 8px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.texto-combo{
+    display:block;
+    margin-top:5px;
+    font-size:13px;
+    color:#ffe082;
+    font-weight:500;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
 }

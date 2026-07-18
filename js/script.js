@@ -44,7 +44,7 @@ function finalizarPedido(){
     mensagem += "📍 Endereço:%0A";
     mensagem += "💳 Forma de pagamento:%0A";
     mensagem += "📝 Observações:%0A";
-    const numero = "5515999999999";
+    const numero = "5511915701095";
     window.open(
         `https://wa.me/${numero}?text=${mensagem}`,
         "_blank"

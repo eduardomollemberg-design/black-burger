@@ -1,7 +1,60 @@
+@media (max-width:768px){
+
+nav,
+.navbar-cardapio{
+    padding:15px 25px;
+}
+
+.nav-menu{
+    gap:25px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.cards{
+    gap:25px;
+}
+
+.card{
+    width:320px;
+}
+
+.cards-diferenciais{
+    gap:20px;
+}
+
+.card-diferencial{
+    width:320px;
+}
+
+#produtos{
+    padding:20px;
+}
+
+.hero-cardapio h1{
+    font-size:40px;
+}
+
+.hero-cardapio p{
+    font-size:17px;
+}
+
+.painel-carrinho{
+    width:380px;
+}
+
+}
+
 @media(max-width:600px){
 
 nav{
-    padding:15px 20px;
+    padding:12px 20px;
 }
 
 .nav-menu{
@@ -17,12 +70,12 @@ nav{
 }
 
 .hero h1{
-    font-size:3rem;
+    font-size:2.4rem;
     line-height:1.1;
 }
 
 .hero p{
-    font-size:1rem;
+    font-size:15px;
     padding:0 20px;
 }
 
@@ -32,18 +85,63 @@ nav{
 }
 
 .card{
-    width:90%;
+    width:100%;
+    padding:15px;
     max-width:350px;
+}
+
+.btn{
+    padding:14px 30px;
 }
 
 #produtos{
     grid-template-columns:1fr;
-    padding:20px;
+    padding:12px;
 }
 
 .painel-carrinho{
     width:100%;
 }
 
+.cards-diferenciais{
+    flex-direction:column;
+    align-items:center;
+}
+
+.card-diferencial{
+    width:100%;
+    max-width:350px;
+}
+
+.hero-info{
+    font-size:15px;
+}
+
+.hero-cardapio h1{
+    font-size:34px;
+}
+
+.hero-cardapio p{
+    font-size:15px;
+    padding:0 20px;
+}
+
+.titulo-categoria{
+    font-size:28px;
+}
+
+.grid-categoria{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+footer{
+    padding:30px 20px;
+}
+
+footer p{
+    font-size:14px;
+}
 
 }
