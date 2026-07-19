@@ -1,4 +1,7 @@
 const botaoFinalizar = document.getElementById("finalizarPedido");
+const modalPedido = document.getElementById("modalPedido");
+const fecharModal = document.getElementById("fecharModal");
+const botaoEnviar = document.getElementById("enviarPedido");
 const botoes = document.querySelectorAll(".adicionar-carrinho");
 botoes.forEach(function(botao){
     botao.addEventListener("click", function(){
@@ -16,11 +19,25 @@ botoes.forEach(function(botao){
 
 if(botaoFinalizar){
 botaoFinalizar.addEventListener("click", function(){
-    finalizarPedido();
+    overlay.classList.remove("ativo");
+    modalPedido.classList.add("ativo");
 
 });
 }
 
+if(fecharModal){
+    fecharModal.addEventListener("click", function(){
+        modalPedido.classList.remove("ativo");
+    });
+}
+
+if(modalPedido){
+modalPedido.addEventListener("click", function(event){
+    if(event.target === modalPedido){
+        modalPedido.classList.remove("ativo");
+    }
+});
+}
 function finalizarPedido(){
 
     if(carrinho.length === 0){
