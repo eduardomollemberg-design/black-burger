@@ -63,7 +63,7 @@
 
             <h2>Finalizar Pedido</h2>
 
-            <button id="fecharModal">
+            <button id="fecharModalPedido">
                 ✖
             </button>
 
@@ -81,20 +81,39 @@
             id="telefoneCliente"
             placeholder="Telefone">
 
-            <input
-            type="text"
-            id="enderecoCliente"
-            placeholder="Endereço">
 
-            <input
-            type="text"
-            id="numeroCliente"
-            placeholder="Número">
+            <div class="tipo-pedido">
 
-            <input
-            type="text"
-            id="complementoCliente"
-            placeholder="Complemento">
+    <label>
+        <input type="radio" name="tipoPedido" value="Entrega" checked>
+        🚚 Entrega
+    </label>
+
+    <label>
+        <input type="radio" name="tipoPedido" value="Retirada">
+        🏪 Retirada
+    </label>
+
+</div>
+
+<div id="dadosEntrega">
+
+<input
+type="text"
+id="enderecoCliente"
+placeholder="Endereço">
+
+<input
+type="text"
+id="numeroCliente"
+placeholder="Número">
+
+<input
+type="text"
+id="complementoCliente"
+placeholder="Complemento">
+
+</div>
 
             <select id="pagamentoCliente">
 
@@ -197,7 +216,7 @@
     <small id="precoCombo"></small>
 </button>
 
-        <button id="fecharModal" class="btn-fechar">
+        <button id="fecharModalCombo" class="btn-fechar">
             Cancelar
         </button>
 
@@ -209,6 +228,7 @@
 <script src="js/toast.js"></script>
 <script src="js/carrinho.js"></script>
 <script src="js/cardapio.js"></script>
+
 
 </body>
 </html>

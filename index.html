@@ -54,7 +54,7 @@
 
             <h2>Finalizar Pedido</h2>
 
-            <button id="fecharModal">
+            <button id="fecharModalPedido">
                 ✖
             </button>
 
@@ -119,6 +119,50 @@
     </div>
 </div>
 
+<!-- MODAL ESCOLHA COMBO -->
+
+<div id="modalCombo" class="modal-combo">
+
+    <div class="modal-conteudo">
+
+        <h2 id="tituloCombo"></h2>
+
+        <p>Escolha como deseja seu pedido:</p>
+
+
+        <button id="btnLanche" class="btn-opcao">
+
+            🍔 Apenas Lanche
+
+            <small id="precoLanche"></small>
+
+        </button>
+
+
+        <button id="btnCombo" class="btn-opcao destaque">
+
+            🍟 Combo ⭐
+
+            <small>
+                Acompanha Batata Frita + Refrigerante
+            </small>
+
+            <small id="precoCombo"></small>
+
+        </button>
+
+
+        <button id="fecharModalCombo" class="btn-fechar">
+
+            Cancelar
+
+        </button>
+
+
+    </div>
+
+</div>
+
   <section class="hero">
   <h1>Black Burger</h1>
 
@@ -176,7 +220,8 @@
     class="card"
     data-id="1"
     data-nome="Black Clássico"
-    data-preco="29.00">
+    data-preco="29.00"
+    data-combo="true">
      
       <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2024/05/28/istock-1500141300-1iv4aeazj5her.jpg" alt="Hambúrguer">
      <div class="avaliacao">
@@ -271,6 +316,7 @@
 <script src="js/produtos.js"></script>
 <script src="js/toast.js"></script>
 <script src="js/carrinho.js"></script>
+
 <script src="js/script.js"></script>
 
 </body>

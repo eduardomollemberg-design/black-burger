@@ -219,3 +219,96 @@ document.addEventListener("DOMContentLoaded", function(){
     atualizarContador();
 
 });
+
+const botaoFinalizar = document.getElementById("finalizarPedido");
+const modalPedido = document.getElementById("modalPedido");
+const fecharModalPedido = document.getElementById("fecharModalPedido");
+const botaoEnviar = document.getElementById("enviarPedido");
+
+
+if (botaoFinalizar) {
+    botaoFinalizar.addEventListener("click", function () {
+        overlay.classList.remove("ativo");
+        modalPedido.classList.add("ativo");
+
+    });
+}
+
+    if(fecharModalPedido){
+    fecharModalPedido.addEventListener("click", function(){
+        modalPedido.classList.remove("ativo");
+    });
+}
+
+if(modalPedido){
+modalPedido.addEventListener("click", function(event){
+    if(event.target === modalPedido){
+        modalPedido.classList.remove("ativo");
+    }
+});
+}
+
+function finalizarPedido(){
+
+    const nome = document.getElementById("nomeCliente").value;
+    const telefone = document.getElementById("telefoneCliente").value;
+    const endereco = document.getElementById("enderecoCliente").value;
+    const numeroCasa = document.getElementById("numeroCliente").value;
+    const complemento = document.getElementById("complementoCliente").value;
+    const pagamento = document.getElementById("pagamentoCliente").value;
+    const observacao = document.getElementById("observacaoCliente").value;
+
+    if(
+    nome === "" ||
+    telefone === "" ||
+    endereco === "" ||
+    numeroCasa === "" ||
+    pagamento === ""
+){
+    alert("Preencha todos os campos obrigatórios.");
+    return;
+}
+
+    if(carrinho.length === 0){
+        alert("Seu carrinho está vazio!");
+        return;
+        
+    }
+
+    let mensagem = "🍔 *BLACK BURGER*%0A%0A";
+    mensagem += "━━━━━━━━━━━━━━%0A%0A";
+    mensagem += "📋 *PEDIDO*%0A%0A";
+    carrinho.forEach(function(produto){
+        mensagem += `• ${produto.quantidade}x ${produto.nome}%0A`;
+        mensagem += `R$ ${(produto.preco * produto.quantidade).toFixed(2)}%0A%0A`;
+    });
+
+    mensagem += "━━━━━━━━━━━━━━%0A%0A";
+    mensagem += `💰 *${total.textContent}*%0A%0A`;
+    mensagem += "━━━━━━━━━━━━━━%0A%0A";
+    mensagem += `👤 Nome: ${nome}%0A`;
+mensagem += `📞 Telefone: ${telefone}%0A`;
+mensagem += `📍 Endereço: ${endereco}%0A`;
+mensagem += `🏠 Número: ${numeroCasa}%0A`;
+mensagem += `📦 Complemento: ${complemento}%0A`;
+mensagem += `💳 Pagamento: ${pagamento}%0A`;
+mensagem += `📝 Observação: ${observacao}%0A`;
+    const numero = "5511915701095";
+    window.open(
+        `https://wa.me/${numero}?text=${mensagem}`,
+        "_blank"
+    );
+
+    carrinho = [];
+
+salvarCarrinho();
+atualizarCarrinho();
+atualizarContador();
+modalPedido.classList.remove("ativo");
+
+}
+
+if(botaoEnviar){
+    botaoEnviar.addEventListener("click", finalizarPedido);
+}
+
