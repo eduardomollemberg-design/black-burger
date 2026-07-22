@@ -286,9 +286,9 @@ if(tipoPedido === "Entrega" && (endereco === "" || numeroCasa === "")){
         
     }
 
-let mensagem = "🍔 *BLACK BURGER*\n";
+let mensagem = "\u{1F354} *BLACK BURGER*\n";
 mensagem += "━━━━━━━━━━━━━━\n";
-mensagem += "📋 *NOVO PEDIDO*\n\n";
+mensagem += "\u{1F4CB} *NOVO PEDIDO*\n\n";
 
 let valorTotal = 0;
 
@@ -296,36 +296,38 @@ carrinho.forEach(function(produto){
     const subtotal = produto.preco * produto.quantidade;
     valorTotal += subtotal;
 
-    mensagem += `🍔 ${produto.quantidade}x ${produto.nome}\n`;
-    mensagem += `💵 R$ ${subtotal.toFixed(2).replace(".", ",")}\n\n`;
-
+    mensagem += `\u{1F354} ${produto.quantidade}x ${produto.nome}\n`;
+    mensagem += `\u{1F4B5} R$ ${subtotal.toFixed(2).replace(".", ",")}\n\n`;
 });
 
 mensagem += "━━━━━━━━━━━━━━\n";
-mensagem += `💰 *TOTAL: R$ ${valorTotal.toFixed(2).replace(".", ",")}*\n`;
+mensagem += `\u{1F4B0} *TOTAL: R$ ${valorTotal.toFixed(2).replace(".", ",")}*\n`;
 mensagem += "━━━━━━━━━━━━━━\n\n";
 
-mensagem += "👤 *DADOS DO CLIENTE*\n";
+mensagem += "\u{1F464} *DADOS DO CLIENTE*\n";
 mensagem += `Nome: ${nome}\n`;
 mensagem += `Telefone: ${telefone}\n\n`;
-mensagem += `🚚 *Tipo:* ${tipoPedido}\n\n`;
+mensagem += `\u{1F69A} *Tipo:* ${tipoPedido}\n\n`;
 
 
 if(tipoPedido === "Entrega"){
-    mensagem += "📍 *ENDEREÇO*\n";
+    mensagem += "\u{1F4CD} *ENDEREÇO*\n";
     mensagem += `${endereco}, Nº ${numeroCasa}\n`;
     mensagem += `Complemento: ${complemento}\n\n`;
 
 }
 
 mensagem += "\n";
-mensagem += `💳 Pagamento: ${pagamento}\n`;
-mensagem += `📝 Observação: ${observacao || "Nenhuma"}\n`;
+mensagem += `\u{1F4B3} Pagamento: ${pagamento}\n`;
+mensagem += `\u{1F4DD} Observação: ${observacao || "Nenhuma"}\n`;
 
 
     const numero = "5511930247218";
- window.open(
-    `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`,
+ 
+    const mensagemCodificada = encodeURIComponent(mensagem);
+
+window.open(
+    `https://wa.me/${numero}?text=${mensagemCodificada}`,
     "_blank"
 );
 
@@ -366,4 +368,80 @@ if(botaolimparCarrinho){
         }
 
     });
+}
+
+// ===== MODAL COMBO =====
+
+const modalCombo = document.getElementById("modalCombo");
+const tituloCombo = document.getElementById("tituloCombo");
+const btnLanche = document.getElementById("btnLanche");
+const btnCombo = document.getElementById("btnCombo");
+const btnFecharModalCombo = document.getElementById("fecharModalCombo");
+
+const precoLanche = document.getElementById("precoLanche");
+const precoCombo = document.getElementById("precoCombo");
+
+let produtoSelecionado = null;
+
+function abrirModalCombo(produto){
+
+    produtoSelecionado = produto;
+
+    tituloCombo.textContent = produto.nome;
+
+    precoLanche.textContent =
+        `R$ ${produto.preco.toFixed(2)}`;
+
+    const diferenca =
+        produto.precoCombo - produto.preco;
+
+    precoCombo.innerHTML = `
+        <strong>R$ ${produto.precoCombo.toFixed(2)}</strong><br>
+        <span>Apenas +R$ ${diferenca.toFixed(2)} para virar Combo 🚀</span>
+    `;
+
+    modalCombo.classList.add("ativo");
+}
+
+function fecharModalCombo(){
+
+    modalCombo.classList.remove("ativo");
+    produtoSelecionado = null;
+
+}
+
+if(btnFecharModalCombo){
+
+    btnFecharModalCombo.addEventListener("click", fecharModalCombo);
+
+}
+
+if(btnLanche){
+
+    btnLanche.addEventListener("click", function(){
+
+        adicionarAoCarrinho(produtoSelecionado);
+
+        fecharModalCombo();
+
+    });
+
+}
+
+if(btnCombo){
+
+    btnCombo.addEventListener("click", function(){
+
+        adicionarAoCarrinho({
+
+            id: produtoSelecionado.id + 1000,
+            nome: produtoSelecionado.nome + " Combo",
+            preco: produtoSelecionado.precoCombo
+
+        });
+
+        fecharModalCombo();
+
+    });
+
 }

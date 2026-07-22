@@ -1,8 +1,12 @@
-
-
+console.log("Script carregou");
 const botoes = document.querySelectorAll(".adicionar-carrinho");
+
 botoes.forEach(function(botao){
+
     botao.addEventListener("click", function(){
+
+        console.log("Script carregou");
+        
         const card = this.closest(".card");
 
         if(!card){
@@ -10,63 +14,54 @@ botoes.forEach(function(botao){
             return;
         }
 
-    const id = Number(card.dataset.id);
-const produto = produtos.find(function(item){
-    return item.id === id;
-});
+        const id = Number(card.dataset.id);
 
+        const produto = produtos.find(function(item){
+            return item.id === id;
+        });
 
-if(produto.combo){
+        if(!produto){
+            return;
+        }
 
-    abrirModalCombo(produto);
+        if(produto.combo){
 
-}else{
-
-    adicionarAoCarrinho(produto);
-
-}
-
-const produtoCompleto = produtos.find(function(item){
-    return item.id === produto.id;
-});
-
-if(produtoCompleto && produtoCompleto.combo){
-    abrirModalCombo(produtoCompleto);
-
-}else{
-
-    adicionarAoCarrinho(produto);
-
-}
-
-        adicionarAoCarrinho(produto);
-
-    });
-
-});
-
-
-atualizarCarrinho();
-atualizarContador();
-
-if(botaoEnviar){
-    botaoEnviar.addEventListener("click", finalizarPedido);
-}
-
-const radiosPedido = document.querySelectorAll('input[name="tipoPedido"]');
-const dadosEntrega = document.getElementById("dadosEntrega");
-
-radiosPedido.forEach(function(radio){
-    radio.addEventListener("change", function(){
-        if(this.value === "Retirada"){
-            dadosEntrega.style.display = "none";
+            abrirModalCombo(produto);
 
         }else{
 
-            dadosEntrega.style.display = "block";
+            adicionarAoCarrinho(produto);
 
         }
 
     });
 
 });
+
+atualizarCarrinho();
+atualizarContador();
+
+const radiosPedido = document.querySelectorAll('input[name="tipoPedido"]');
+const dadosEntrega = document.getElementById("dadosEntrega");
+
+if(radiosPedido.length && dadosEntrega){
+
+    radiosPedido.forEach(function(radio){
+
+        radio.addEventListener("change", function(){
+
+            if(this.value === "Retirada"){
+
+                dadosEntrega.style.display = "none";
+
+            }else{
+
+                dadosEntrega.style.display = "block";
+
+            }
+
+        });
+
+    });
+
+}
