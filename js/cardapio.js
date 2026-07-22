@@ -297,7 +297,7 @@ btnCombo.addEventListener("click",function(){
 
         id: produtoSelecionado.id + 1000,
 
-        nome: produtoSelecionado.nome + " Combo",
+        nome: produtoSelecionado.nome + " (Combo)",
 
         preco: produtoSelecionado.precoCombo
 

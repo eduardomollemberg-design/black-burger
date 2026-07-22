@@ -748,3 +748,37 @@ nav a{
     }
 
 }
+
+.preco-item{
+    font-size:14px;
+    color:#777;
+    margin:5px 0;
+}
+
+
+.subtotal{
+    font-weight:bold;
+    color:#ff6600;
+    margin:10px 0;
+}
+
+#limparCarrinho{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#c62828;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+
+#limparCarrinho:hover{
+    background:#e53935;
+    transform:translateY(-2px);
+    box-shadow:0 8px 15px rgba(198,40,40,.4);
+}

@@ -1,6 +1,5 @@
 // CARRINHO
 
-
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 
@@ -125,23 +124,30 @@ if(carrinho.length === 0){
         const item = document.createElement("div");
         item.classList.add("item-carrinho");
 
-        item.innerHTML = `
-            <h4>${produto.nome}</h4>
+item.innerHTML = `
+    <h4>${produto.nome}</h4>
 
-            <div class="controle-quantidade">
-                <button class="diminuir">➖</button>
-                <span>${produto.quantidade}</span>
-                <button class="aumentar">➕</button>
-            </div>
+    <p class="preco-item">
+        Unitário: R$ ${produto.preco.toFixed(2)}
+    </p>
 
-            <p class="subtotal">
-                R$ ${(produto.preco * produto.quantidade).toFixed(2)}
-            </p>
+    <div class="controle-quantidade">
+        <button class="diminuir">➖</button>
 
-            <button class="remover">
-                🗑 Remover
-            </button>
-        `;
+        <span>${produto.quantidade}</span>
+
+        <button class="aumentar">➕</button>
+    </div>
+
+    <p class="subtotal">
+        Subtotal:
+        R$ ${(produto.preco * produto.quantidade).toFixed(2)}
+    </p>
+
+    <button class="remover">
+        🗑 Remover
+    </button>
+`;
 
         valorTotal += produto.preco * produto.quantidade;
         listaCarrinho.appendChild(item);
@@ -257,16 +263,21 @@ function finalizarPedido(){
     const complemento = document.getElementById("complementoCliente").value;
     const pagamento = document.getElementById("pagamentoCliente").value;
     const observacao = document.getElementById("observacaoCliente").value;
+const tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
 
     if(
     nome === "" ||
     telefone === "" ||
-    endereco === "" ||
-    numeroCasa === "" ||
     pagamento === ""
 ){
     alert("Preencha todos os campos obrigatórios.");
     return;
+}
+
+if(tipoPedido === "Entrega" && (endereco === "" || numeroCasa === "")){
+    alert("Preencha o endereço para entrega.");
+    return;
+
 }
 
     if(carrinho.length === 0){
@@ -275,29 +286,48 @@ function finalizarPedido(){
         
     }
 
-    let mensagem = "🍔 *BLACK BURGER*%0A%0A";
-    mensagem += "━━━━━━━━━━━━━━%0A%0A";
-    mensagem += "📋 *PEDIDO*%0A%0A";
-    carrinho.forEach(function(produto){
-        mensagem += `• ${produto.quantidade}x ${produto.nome}%0A`;
-        mensagem += `R$ ${(produto.preco * produto.quantidade).toFixed(2)}%0A%0A`;
-    });
+let mensagem = "🍔 *BLACK BURGER*\n";
+mensagem += "━━━━━━━━━━━━━━\n";
+mensagem += "📋 *NOVO PEDIDO*\n\n";
 
-    mensagem += "━━━━━━━━━━━━━━%0A%0A";
-    mensagem += `💰 *${total.textContent}*%0A%0A`;
-    mensagem += "━━━━━━━━━━━━━━%0A%0A";
-    mensagem += `👤 Nome: ${nome}%0A`;
-mensagem += `📞 Telefone: ${telefone}%0A`;
-mensagem += `📍 Endereço: ${endereco}%0A`;
-mensagem += `🏠 Número: ${numeroCasa}%0A`;
-mensagem += `📦 Complemento: ${complemento}%0A`;
-mensagem += `💳 Pagamento: ${pagamento}%0A`;
-mensagem += `📝 Observação: ${observacao}%0A`;
-    const numero = "5511915701095";
-    window.open(
-        `https://wa.me/${numero}?text=${mensagem}`,
-        "_blank"
-    );
+let valorTotal = 0;
+
+carrinho.forEach(function(produto){
+    const subtotal = produto.preco * produto.quantidade;
+    valorTotal += subtotal;
+
+    mensagem += `🍔 ${produto.quantidade}x ${produto.nome}\n`;
+    mensagem += `💵 R$ ${subtotal.toFixed(2).replace(".", ",")}\n\n`;
+
+});
+
+mensagem += "━━━━━━━━━━━━━━\n";
+mensagem += `💰 *TOTAL: R$ ${valorTotal.toFixed(2).replace(".", ",")}*\n`;
+mensagem += "━━━━━━━━━━━━━━\n\n";
+
+mensagem += "👤 *DADOS DO CLIENTE*\n";
+mensagem += `Nome: ${nome}\n`;
+mensagem += `Telefone: ${telefone}\n\n`;
+mensagem += `🚚 *Tipo:* ${tipoPedido}\n\n`;
+
+
+if(tipoPedido === "Entrega"){
+    mensagem += "📍 *ENDEREÇO*\n";
+    mensagem += `${endereco}, Nº ${numeroCasa}\n`;
+    mensagem += `Complemento: ${complemento}\n\n`;
+
+}
+
+mensagem += "\n";
+mensagem += `💳 Pagamento: ${pagamento}\n`;
+mensagem += `📝 Observação: ${observacao || "Nenhuma"}\n`;
+
+
+    const numero = "5511930247218";
+ window.open(
+    `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`,
+    "_blank"
+);
 
     carrinho = [];
 
@@ -312,3 +342,28 @@ if(botaoEnviar){
     botaoEnviar.addEventListener("click", finalizarPedido);
 }
 
+const botaolimparCarrinho = document.getElementById("limparCarrinho");
+
+if(botaolimparCarrinho){
+
+    botaolimparCarrinho.addEventListener("click", function(){
+        
+        if(carrinho.length === 0){
+            alert("Seu carrinho já está vazio!");
+            return;
+        }
+
+        const confirmar = confirm(
+            "Deseja remover todos os produtos do carrinho?"
+        );
+
+        if(confirmar){
+
+            carrinho = [];
+            salvarCarrinho();
+            atualizarCarrinho();
+            atualizarContador();
+        }
+
+    });
+}
