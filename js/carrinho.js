@@ -286,9 +286,9 @@ if(tipoPedido === "Entrega" && (endereco === "" || numeroCasa === "")){
         
     }
 
-let mensagem = "\u{1F354} *BLACK BURGER*\n";
-mensagem += "━━━━━━━━━━━━━━\n";
-mensagem += "\u{1F4CB} *NOVO PEDIDO*\n\n";
+let mensagem = "🍔 *BLACK BURGER*\n";
+mensagem += "----------------\n";
+mensagem += "📋 *NOVO PEDIDO*\n\n";
 
 let valorTotal = 0;
 
@@ -300,9 +300,9 @@ carrinho.forEach(function(produto){
     mensagem += `\u{1F4B5} R$ ${subtotal.toFixed(2).replace(".", ",")}\n\n`;
 });
 
-mensagem += "━━━━━━━━━━━━━━\n";
+mensagem += "----------------\n";
 mensagem += `\u{1F4B0} *TOTAL: R$ ${valorTotal.toFixed(2).replace(".", ",")}*\n`;
-mensagem += "━━━━━━━━━━━━━━\n\n";
+mensagem += "----------------\n\n";
 
 mensagem += "\u{1F464} *DADOS DO CLIENTE*\n";
 mensagem += `Nome: ${nome}\n`;
@@ -326,8 +326,8 @@ mensagem += `\u{1F4DD} Observação: ${observacao || "Nenhuma"}\n`;
  
     const mensagemCodificada = encodeURIComponent(mensagem);
 
-window.open(
-    `https://wa.me/${numero}?text=${mensagemCodificada}`,
+  window.open(
+    `https://api.whatsapp.com/send?phone=${numero}&text=${mensagemCodificada}`,
     "_blank"
 );
 
