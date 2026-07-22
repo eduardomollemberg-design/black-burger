@@ -255,7 +255,7 @@ nav a{
     }
 
     .card:hover{
-  transform: translateY(-8px);
+  transform: translateY(-5px);
 }
 
 .painel-carrinho{
@@ -429,31 +429,6 @@ nav a{
 #toast.mostrar{
     opacity: 1;
     transform: translateY(0);
-}
-
-.toast{
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: #27ae60;
-    color: white;
-    padding: 15px 22px;
-    border-radius: 10px;
-    font-weight: bold;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: .35s;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-.toast.mostrar{
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.overlay.ativo .painel-carrinho{
-    transform: translateX(0);
 }
 
 .carrinho-vazio{
@@ -674,7 +649,7 @@ nav a{
     color:#ff6600;
 }
 
-#fecharModal{
+#fecharModalPedido{
     background:none;
     border:none;
     color:white;
@@ -683,7 +658,7 @@ nav a{
     transition:.3s;
 }
 
-#fecharModal:hover{
+#fecharModalPedido:hover{
     color:#ff6600;
     transform:rotate(90deg);
 }
@@ -711,6 +686,14 @@ nav a{
 .formulario select:focus,
 .formulario textarea:focus{
     border-color:#ff6600;
+}
+
+#finalizarPedido:active,
+#enviarPedido:active,
+#limparCarrinho:active,
+.btn-card:active,
+.btn:active{
+    transform:scale(.96);
 }
 
 .formulario textarea{
@@ -768,7 +751,7 @@ nav a{
     margin-top:10px;
     border:none;
     border-radius:10px;
-    background:#c62828;
+    background:#b71c1c;
     color:white;
     font-size:16px;
     font-weight:bold;
@@ -778,7 +761,7 @@ nav a{
 
 
 #limparCarrinho:hover{
-    background:#e53935;
+    background:#d32f2f;
     transform:translateY(-2px);
     box-shadow:0 8px 15px rgba(198,40,40,.4);
 }
