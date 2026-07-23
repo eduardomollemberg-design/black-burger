@@ -86,7 +86,7 @@ nav{
 
 .card{
     width:100%;
-    padding:15px;
+    padding:18px;
     max-width:350px;
 }
 
@@ -94,13 +94,25 @@ nav{
     padding:14px 30px;
 }
 
-#produtos{
+.grid-categoria{
+    display:grid;
     grid-template-columns:1fr;
-    padding:12px;
+    gap:20px;
+    padding:10px;
+}
+
+.grid-categoria .card{
+    width:100%;
+    max-width:350px;
+    margin:auto;
 }
 
 .painel-carrinho{
     width:100%;
+}
+
+.grid-categoria .card img{
+    height:180px;
 }
 
 .cards-diferenciais{

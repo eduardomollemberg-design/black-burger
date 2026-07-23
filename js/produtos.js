@@ -6,7 +6,7 @@ const produtos = [
         categoria:"hamburguer",
         preco:29,
         combo:true,
-        precoCombo:39,
+        precoCombo:44,
         descricao:"2x hambúrguer 90g, cheddar, bacon e molho especial Black",
         imagem:"imagens/black.jpg"
     },
@@ -16,6 +16,8 @@ const produtos = [
         nome:"Black Kids",
         categoria:"hamburguer",
         preco:22,
+        combo:true,
+        precoCombo:37,
         descricao:"Hambúrguer 120g cheddar e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
@@ -25,6 +27,8 @@ const produtos = [
         nome:"Burguer da Casa",
         categoria:"hamburguer",
         preco:38,
+        combo:true,
+        precoCombo:53,
         descricao:"Hambúrguer 170g, mussarela, bacon, catupiry, cebola roxa e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
@@ -34,6 +38,8 @@ const produtos = [
         nome:"Black Salad",
         categoria:"hamburguer",
         preco:34,
+        combo:true,
+        precoCombo:49,
         descricao:"2x hambúrguer, cheddar, alface, tomate, cebola roxa e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
@@ -43,6 +49,8 @@ const produtos = [
         nome:"Black Triplo Bacon",
         categoria:"hamburguer",
         preco:40,
+        combo:true,
+        precoCombo:55,
         descricao:"3x hambúrguer, cheddar, bacon crocante e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
@@ -52,6 +60,8 @@ const produtos = [
         nome:"Black Cebola Caramelizada",
         categoria:"hamburguer",
         preco:36,
+        combo:true,
+        precoCombo:51,
         descricao:"2x hambúrguer, cheddar, cebola caramelizada e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
@@ -61,6 +71,8 @@ const produtos = [
         nome:"Black Doritos",
         categoria:"hamburguer",
         preco:38,
+        combo:true,
+        precoCombo:53,
         descricao:"2x hambúrguer, cheddar cremoso, bacon, doritos e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
@@ -70,6 +82,8 @@ const produtos = [
         nome:"Black Catupiry",
         categoria:"hamburguer",
         preco:39,
+        combo:true,
+        precoCombo:54,
         descricao:"2x hambúrguer, cheddar, catupiry original, bacon e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
@@ -78,7 +92,9 @@ const produtos = [
         id:9,
         nome:"Black Chicken",
         categoria:"hamburguer",
-        preco:39,
+        preco:30,
+        combo:true,
+        precoCombo:45,
         descricao:"Filé de frango, mussarela, alface, tomate, cebola roxa e molho especial Black.",
         imagem:"imagens/black.jpg"
     },
